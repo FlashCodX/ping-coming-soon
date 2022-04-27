@@ -1,154 +1,79 @@
-import backgroundImg from "./assets/bg-intro-desktop.png";
-import { useState } from "react";
+import { GrFacebookOption } from "react-icons/gr";
+import { AiOutlineTwitter, AiFillInstagram } from "react-icons/ai";
+
 import styles from "./styles/App.module.css";
+import illustration from "./assets/illustration-dashboard.png";
+import { useState } from "react";
+const logo = require("./assets/logo.svg").default;
 
 function App() {
-  const [allowSubmit, setSubmit] = useState(true);
-  const [firstname, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
   const {
     container,
-    backgroundContainer,
-    pageContent,
-    pageInfo,
-    trialContainer,
-    formContainer,
-    termsAndServices,
+    logoStyle,
+    socials,
+    heading,
+    inputContainer,
+    illustrationStyle,
+    iconContainer,
     attribution,
+    formContainer,
+    copyright,
   } = styles;
 
-  const trySubmit = () => {
-    setSubmit(
-      firstname !== "" && lastName !== "" && email !== "" && password !== ""
-    );
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState(false);
+
+  const handleSubmit = () => {
+    email !== "" && email.includes("@") ? setError(false) : setError(true);
   };
   return (
     <>
       <main className={container}>
-        <div className={backgroundContainer}>
-          <img src={backgroundImg} alt="background" />
+        <img src={logo} className={logoStyle} alt="logo" />
+        <div className={heading}>
+          <h1>
+            We are lauching <span>soon!</span>
+          </h1>
+          <p>Subscribe to get notified</p>
         </div>
-        <div className={pageContent}>
-          <div className={pageInfo}>
-            <h1>Learn to code by watching others</h1>
-            <p>
-              See how experienced developers solve problems in real-time.
-              Watching scripted tutorials is great, but understanding how
-              developers think is invaluable.
+        <div className={formContainer}>
+          <div className={inputContainer}>
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              placeholder="Your email address..."
+            />
+            <p
+              style={
+                error ? { visibility: "visible" } : { visibility: "hidden" }
+              }
+            >
+              Please provide a valid email address
             </p>
           </div>
-          <div className={trialContainer}>
-            <header>
-              <div>
-                Try it free 7 days <span>then $20/mo. thereafter</span>
-              </div>
-            </header>
-
-            <div className={formContainer}>
-              <div>
-                <input
-                  style={
-                    firstname || allowSubmit
-                      ? { border: "1px solid lightgray" }
-                      : { border: "2px solid red" }
-                  }
-                  value={firstname}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  type="text"
-                  required
-                  placeholder="First Name"
-                />
-                <p
-                  style={
-                    firstname || allowSubmit
-                      ? { visibility: "hidden" }
-                      : { visibility: "visible" }
-                  }
-                >
-                  First Name cannot be empty
-                </p>
-              </div>
-              <div>
-                <input
-                  style={
-                    lastName || allowSubmit
-                      ? { border: "1px solid lightgray" }
-                      : { border: "2px solid red" }
-                  }
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  type="text"
-                  required
-                  placeholder="Last Name"
-                />
-                <p
-                  style={
-                    lastName || allowSubmit
-                      ? { visibility: "hidden" }
-                      : { visibility: "visible" }
-                  }
-                >
-                  Last Name Cannot be empty
-                </p>
-              </div>
-              <div>
-                <input
-                  style={
-                    email || allowSubmit
-                      ? { border: "1px solid lightgray" }
-                      : { border: "2px solid red" }
-                  }
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="email"
-                  required
-                  placeholder="Email Address"
-                />
-                <p
-                  style={
-                    email || allowSubmit
-                      ? { visibility: "hidden" }
-                      : { visibility: "visible" }
-                  }
-                >
-                  Email Cannot be empty
-                </p>
-              </div>
-
-              <div>
-                <input
-                  style={
-                    password || allowSubmit
-                      ? { border: "1px solid lightgray" }
-                      : { border: "2px solid red" }
-                  }
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  type="password"
-                  required
-                  placeholder="Password"
-                />
-                <p
-                  style={
-                    password || allowSubmit
-                      ? { visibility: "hidden" }
-                      : { visibility: "visible" }
-                  }
-                >
-                  Password Cannot be empty
-                </p>
-              </div>
-              <button onClick={() => trySubmit()}>Claim yout free Trial</button>
-              <p className={termsAndServices}>
-                By clicking the button, you are agreeing to our{" "}
-                <a href="/">Terms and Services</a>
-              </p>
-            </div>
+          <button onClick={() => handleSubmit()}>Notify Me</button>
+        </div>
+        <img
+          src={illustration}
+          className={illustrationStyle}
+          alt="illustration"
+        />
+        <div className={socials}>
+          <div className={iconContainer}>
+            <GrFacebookOption />
+          </div>
+          <div className={iconContainer}>
+            <AiOutlineTwitter />
+          </div>
+          <div className={iconContainer}>
+            <AiFillInstagram />
           </div>
         </div>
+        <p className={copyright}>
+          {" "}
+          &copy; Copyright Ping. All rights reserved.
+        </p>
       </main>
 
       <footer className={attribution}>
