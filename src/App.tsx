@@ -79,7 +79,7 @@ function App() {
       <footer className={attribution}>
         Challenge by{" "}
         <a
-          href="https://www.frontendmentor.io/challenges/intro-component-with-signup-form-5cf91bd49edda32581d28fd1"
+          href="https://www.frontendmentor.io/challenges/ping-single-column-coming-soon-page-5cadd051fec04111f7b848da"
           target="_blank"
           rel="noreferrer"
         >
