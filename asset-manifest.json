@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ping-coming-soon/static/css/main.f1e47e4a.css",
+    "main.js": "/ping-coming-soon/static/js/main.a3890ce1.js",
+    "static/media/illustration-dashboard.png": "/ping-coming-soon/static/media/illustration-dashboard.f9aaf3db81c10cfaff45.png",
+    "static/media/logo.svg": "/ping-coming-soon/static/media/logo.7e09371f05c7e00fddccee34a9deac87.svg",
+    "index.html": "/ping-coming-soon/index.html",
+    "main.f1e47e4a.css.map": "/ping-coming-soon/static/css/main.f1e47e4a.css.map",
+    "main.a3890ce1.js.map": "/ping-coming-soon/static/js/main.a3890ce1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f1e47e4a.css",
+    "static/js/main.a3890ce1.js"
+  ]
+}
